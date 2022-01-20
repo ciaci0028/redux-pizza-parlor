@@ -20,17 +20,17 @@ function PizzaOrder(){
         console.log('in onAddOrder');
         setOrderInfo({
             ...orderInfo,
-            name: evt.target.value,
-            address2: evt.target.value,
-            city: evt.target.value,
-            zip: evt.target.value,
-            type: evt.target.value,
-            pizzas: evt.target.value
+            name: name,
+            address2: address2,
+            city: city,
+            zip: zip,
+            type: type,
+            pizzas: pizzas
         })
            
             axios.post('/api/order', orderInfo)
                     .then ( res => {
-                        console.log('POST /pizza/order', res.data);
+                        console.log('POST /pizza/order', res);
                         // function with axios.get
                     })
                     .catch ( err => {
