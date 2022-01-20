@@ -12,10 +12,14 @@ function PizzaItem({ pizza }) {
     payload: pizzaCart,
   });
   const addToCart = () => {
-   
+    setFlipStatus(!flipStatus);
+    pizzaCart.push(pizza)
   };
-  
-  const deleteFromCart = () => {};
+
+  const deleteFromCart = (pizza) => {
+    setFlipStatus(!flipStatus);
+    
+  };
 
   return (
     <>
@@ -27,17 +31,11 @@ function PizzaItem({ pizza }) {
       </div>
 
       {flipStatus ? (
-        <button
-          onClick={() => setFlipStatus(!flipStatus)}
-          className="addToCartBtn"
-        >
+        <button onClick={addToCart} className="addToCartBtn">
           Add
         </button>
       ) : (
-        <button
-          onClick={() => setFlipStatus(!flipStatus)} 
-          className="DeleteFromCartBtn"
-        >
+        <button onClick={deleteFromCart} className="DeleteFromCartBtn">
           Remove
         </button>
       )}
