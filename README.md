@@ -97,7 +97,7 @@ This page should have a next button that brings the user to the **enter order de
 Collect user information, *name*, *street address*, *city* and *zip*. This page should have an option to select pickup vs. delivery. The total cost of the order should appear in the top right of this page. This page should have a next button that brings the user to the **checkout** page.
 
 ![Select Pizza View](wireframes/screen-two.png)
-
+x
 ### ORDER - CHECKOUT
 
 Users should not be able to modify item totals on this screen. When they click checkout, the user information, order total and array of pizzas should be sent to the server. After the checkout is complete, navigate the user back to the **select pizza** page AND clear out the reducers as appropriate. Each order should begin with "clean" order data (cart, address, etc).
