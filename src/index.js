@@ -8,7 +8,7 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import logger from "redux-logger";
 
-// Reducers go here
+
 const pizzaList = (state = [], action) => {
   switch (action.type) {
     case "PIZZA_LIST":
@@ -19,12 +19,24 @@ const pizzaList = (state = [], action) => {
   return state;
 };
 
+
+const orderList = (state = [], action) => {
+    switch(action.type) {
+        case 'SET_ORDER_LIST':
+            return action.payload;
+    };
+    
+    return state;
+}
+
 // Create the store
 const store = createStore(
-  combineReducers({
-    pizzaList: pizzaList,
-  }),
-  applyMiddleware(logger)
+    combineReducers({
+       pizzaList: pizzaList,
+        orderList
+    }),
+    applyMiddleware(logger)
+
 );
 
 ReactDOM.render(
