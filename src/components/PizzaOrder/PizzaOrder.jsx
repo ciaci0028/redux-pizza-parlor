@@ -8,56 +8,17 @@ function PizzaOrder(){
         const dispatch = useDispatch();
         const history = useHistory();
 
-        const orderList = (store => store.orderList);
-
         const [name, setName] = useState('');
         const [address2, setAddress2] = useState('');
         const [city, setCity] = useState('');
         const [zip, setZip] = useState('');
         const [type, setType] = useState('');
-        // const [total, setTotal] = useState('');
-
-        // const [orderInfo, setOrderInfo] = useState({name:'', address2: '', city: '', zip: '', type: '', pizzas: ''});
-
-        const onAddOrder = (evt) => {
-        evt.preventDefault();
-        console.log('in onAddOrder');
-        const orderInfo = {
-                customer_name: name,
-                street_address: address2,
-                city: city,
-                zip: zip,
-                type: type,
-                // total: total,
-        }
-        
-        console.log('order info is', orderInfo)
-        axios.post('/api/order', orderInfo)
-                .then ( res => {
-                        console.log('POST /pizza/order', res);
-                        // function with axios.get
-                        dispatch({
-                                type: 'UPDATE_ORDER_LIST',
-                                payload: orderInfo
-                        })      
-                })
-                .catch ( err => {
-                        console.error('POST /pizza/order', err)
-                })
-
-        
-        setName('');
-        setAddress2('');
-        setCity('');
-        setZip('');
-        setType('');
-        setTotal('')
-        };
 
 
         const saveCustomerInformation = (event) => {
                 event.preventDefault();
                 console.log('in save customer info');
+                
 
                 const orderInfo = {
                         customer_name: name,
@@ -65,12 +26,22 @@ function PizzaOrder(){
                         city: city,
                         zip: zip,
                         type: type,
-                        // total: total,
                 }
                 console.log('orderinfo', orderInfo)
 
+                dispatch({
+                        type: 'NEW_CUSTOMER',
+                        payload: orderInfo
+                })
+
         // need to use history.push to move on to next screen
-                
+                history.push("/checkout")
+
+                setName('');
+                setAddress2('');
+                setCity('');
+                setZip('');
+                setType('');
         }
 
 return(
@@ -101,6 +72,7 @@ return(
                 /><br/>
                 <label>Pickup or Delivery?</label><br/>
                 <select id="input" name="input" onChange={event => setType(event.target.value)}>
+                        <option value="Pickup">Please select one:</option>
                         <option value="Pickup">Pickup</option>
                         <option value="Delivery">Delivery</option>
                 </select><br/>

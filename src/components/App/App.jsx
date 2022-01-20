@@ -19,7 +19,7 @@ function App() {
       <div className="App">
         <nav>
           <Link to="/">Home</Link>
-          <Link to="/Checkout">Checkout</Link>
+          <Link to="/checkout">Checkout</Link>
           <Link to="/order">Order</Link>
           <Link to="/admin">Admin</Link>
 
@@ -41,7 +41,8 @@ function App() {
         <Route path="/admin" exact>
           <OrderList />
         </Route>
-        <Route>
+
+        <Route path="/checkout" exact>
           <Checkout />
         </Route>
       </div>
