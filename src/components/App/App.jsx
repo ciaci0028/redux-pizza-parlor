@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import './App.css';
+import PizzaList from '../PizzaList/PizzaList'
 
 function App() {
 
@@ -11,8 +12,7 @@ function App() {
       </header>
   
       <img src='images/pizza_photo.png' />
-      <p>Pizza is great.</p>
-  
+      <PizzaList />
     </div>
   );
 }
