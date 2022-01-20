@@ -4,46 +4,54 @@ import axios from 'axios'
 
 
 function PizzaOrder(){
-    const dispatch = useDispatch();
+        const dispatch = useDispatch();
 
-    const [name, setName] = useState('');
-    const [address2, setAddress2] = useState('');
-    const [city, setCity] = useState('');
-    const [zip, setZip] = useState('');
-    const [type, setType] = useState('')
-    const [pizzas, setPizzas] = useState('')
+        const orderList = (store => store.orderList);
 
-    const [orderInfo, setOrderInfo] = useState({name:'', address2: '', city: '', zip: '', type: '', pizzas: ''});
+        const [name, setName] = useState('');
+        const [address2, setAddress2] = useState('');
+        const [city, setCity] = useState('');
+        const [zip, setZip] = useState('');
+        const [type, setType] = useState('');
+        const [total, setTotal] = useState('');
 
-    const onAddOrder = (evt) => {
+        // const [orderInfo, setOrderInfo] = useState({name:'', address2: '', city: '', zip: '', type: '', pizzas: ''});
+
+        const onAddOrder = (evt) => {
         evt.preventDefault();
         console.log('in onAddOrder');
-        setOrderInfo({
-            ...orderInfo,
-            name: name,
-            address2: address2,
-            city: city,
-            zip: zip,
-            type: type,
-            pizzas: pizzas
-        })
-           
-            axios.post('/api/order', orderInfo)
-                    .then ( res => {
+        const orderInfo = {
+                customer_name: name,
+                street_address: address2,
+                city: city,
+                zip: zip,
+                type: type,
+                total: total,
+        }
+        
+        console.log('order info is', orderInfo)
+        axios.post('/api/order', orderInfo)
+                .then ( res => {
                         console.log('POST /pizza/order', res);
                         // function with axios.get
-                    })
-                    .catch ( err => {
+                        dispatch({
+                                type: 'UPDATE_ORDER_LIST',
+                                payload: orderInfo
+                        })      
+                })
+                .catch ( err => {
                         console.error('POST /pizza/order', err)
-                    })
+                })
 
-            setName('');
-            setAddress2('');
-            setCity('');
-            setZip('');
-            setType('');
-            setPizzas('')
-    }
+
+
+        setName('');
+        setAddress2('');
+        setCity('');
+        setZip('');
+        setType('');
+        setTotal('')
+        }
 
     return(
       <form onSubmit={onAddOrder}>
@@ -79,13 +87,11 @@ function PizzaOrder(){
         />
         <input 
                 type="text"
-                value={pizzas}
-                onChange = {evt => setPizzas(evt.target.value)}
-                placeholder="Pizzas"
+                value={total}
+                onChange = {evt => setTotal(evt.target.value)}
+                placeholder="Total"
         />
         <button type="submit">Add Order</button>
-
-
       </form>
     )
 }

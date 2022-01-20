@@ -8,6 +8,11 @@ import PizzaOrder from '../PizzaOrder/PizzaOrder';
 import OrderList from "../OrderList/OrderList";
 
 function App() {
+
+  
+
+
+
   return (
     <Router>
       <div className="App">
@@ -26,6 +31,8 @@ function App() {
 
         <Route path="/Order" exact>
           <p>Pizza is great.</p>
+          <PizzaOrder 
+          />
           <OrderList />
         </Route>
       </div>
