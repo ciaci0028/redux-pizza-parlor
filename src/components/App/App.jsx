@@ -1,8 +1,10 @@
 import React from "react";
 import axios from "axios";
 import "./App.css";
-import PizzaList from "../PizzaList/PizzaList";
 import { HashRouter as Router, Route, Link } from "react-router-dom";
+
+import PizzaList from "../PizzaList/PizzaList";
+import PizzaOrder from '../PizzaOrder/PizzaOrder';
 import OrderList from "../OrderList/OrderList";
 
 function App() {
