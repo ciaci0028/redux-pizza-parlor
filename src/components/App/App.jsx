@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import './App.css';
-
+import PizzaOrder from '../PizzaOrder/PizzaOrder'
 function App() {
 
   return (
@@ -12,7 +12,7 @@ function App() {
   
       <img src='images/pizza_photo.png' />
       <p>Pizza is great.</p>
-  
+    <PizzaOrder />
     </div>
   );
 }
