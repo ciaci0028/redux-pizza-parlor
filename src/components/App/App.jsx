@@ -18,7 +18,9 @@ function App() {
       <div className="App">
         <nav>
           <Link to="/">Home</Link>
-          <Link to="/Order">Order</Link>
+          <Link to="/order">Order</Link>
+          <Link to="/admin">Admin</Link>
+
         </nav>
 
         <header className="App-header">
@@ -29,10 +31,12 @@ function App() {
           <PizzaList />
         </Route>
 
-        <Route path="/Order" exact>
-          <p>Pizza is great.</p>
-          <PizzaOrder 
-          />
+        <Route path="/order" exact>
+          <p>Customer Information</p>
+          <PizzaOrder />
+        </Route>
+
+        <Route path="/admin" exact>
           <OrderList />
         </Route>
       </div>
