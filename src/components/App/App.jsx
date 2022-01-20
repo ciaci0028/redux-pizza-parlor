@@ -6,6 +6,7 @@ import { HashRouter as Router, Route, Link } from "react-router-dom";
 import PizzaList from "../PizzaList/PizzaList";
 import PizzaOrder from '../PizzaOrder/PizzaOrder';
 import OrderList from "../OrderList/OrderList";
+import Checkout from "../Checkout/Checkout"
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
         <nav>
           <Link to="/">Home</Link>
           <Link to="/Order">Order</Link>
+          <Link to="/Checkout">Checkout</Link>
         </nav>
 
         <header className="App-header">
@@ -34,6 +36,9 @@ function App() {
           <PizzaOrder 
           />
           <OrderList />
+        </Route>
+        <Route>
+          <Checkout />
         </Route>
       </div>
     </Router>
