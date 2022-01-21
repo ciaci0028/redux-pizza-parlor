@@ -24,7 +24,7 @@ function PizzaItem({ pizza }) {
       });
   };
   
-  const deleteFromCart = (pizza) => {
+  const deleteFromCart = () => {
     setFlipStatus(!flipStatus);
     dispatch({
         type: "REMOVE_FROM_CART",

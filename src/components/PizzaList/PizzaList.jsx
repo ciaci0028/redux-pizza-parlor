@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import PizzaItem from "../PizzaItem/PizzaItem";
+import {useHistory } from "react-router-dom"
 
 function PizzaList() {
   const dispatch = useDispatch();
+  const history = useHistory();
   let [pizzaList, setPizzaList] = useState([]);
 
   useEffect(() => {
@@ -38,7 +40,7 @@ function PizzaList() {
       {pizzaList.map((pizza) => (
         <PizzaItem key={pizza.id} pizza={pizza} />
       ))}
-      <button>NEXT</button>
+      <button onClick={() => history.push('/order')}>NEXT</button>
     </div>
   );
 }
