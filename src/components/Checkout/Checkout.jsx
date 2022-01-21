@@ -5,6 +5,7 @@ function Checkout (){
     const totalPrice = useSelector(store => store.totalPrice);
     const customerInformation = useSelector(store => store.customerInformation);
     const pizzaCart = useSelector(store => store.pizzaCart)
+    const totalPrice = useSelector(store => store.totalPrice)
     console.log(customerInformation);
 
     const onAddOrder = (evt) => {
@@ -41,7 +42,7 @@ function Checkout (){
     return (
         <>
         <h1>Prime Pizza</h1>
-        <h3> Step3: Checkout </h3>
+        <h3> Step3: Checkout  </h3>
             <p>{customerInformation.customer_name}</p>
             <p>{customerInformation.street_address}</p>
             <p>{customerInformation.city}, {customerInformation.zip}</p>
@@ -55,7 +56,7 @@ function Checkout (){
                 </thead>
                 <tbody>
                     
-                    {pizzaCart.map(order => (<tr key= {order.id}>
+                    {pizzaCart.map(order => (<tr key={order.id}>
                         <td>{order.name}</td>
                         <td>{order.price}</td>
                     </tr>
