@@ -44,6 +44,9 @@ function PizzaList() {
       ))}
       <h3>Total Price: ${totalPrice}</h3>
       <button onClick={() => history.push('/order')}>NEXT</button>
+      <br></br>
+      <button className="nextBtn" onClick={() => history.push('/order')}>NEXT</button>
+
     </div>
   );
 }
