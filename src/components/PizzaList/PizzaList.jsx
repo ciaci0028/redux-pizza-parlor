@@ -40,7 +40,8 @@ function PizzaList() {
       {pizzaList.map((pizza) => (
         <PizzaItem key={pizza.id} pizza={pizza} />
       ))}
-      <button onClick={() => history.push('/order')}>NEXT</button>
+      <br></br>
+      <button className="nextBtn" onClick={() => history.push('/order')}>NEXT</button>
     </div>
   );
 }
