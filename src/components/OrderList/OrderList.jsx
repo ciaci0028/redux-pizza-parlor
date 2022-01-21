@@ -16,7 +16,7 @@ function OrderList () {
     const fetchOrderList = () => {
         axios.get('/api/order')
             .then(res => {
-                console.log('get /orders success', res);
+                console.log('get /orders success');
 
                 dispatch({
                     type: 'SET_ORDER_LIST',
