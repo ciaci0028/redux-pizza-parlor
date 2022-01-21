@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 function Checkout (){
 
     const customerInformation = useSelector(store => store.customerInformation);
+    const pizzaCart = useSelector(store => store.pizzaCart)
     console.log(customerInformation);
 
     const onAddOrder = (evt) => {
@@ -32,8 +33,9 @@ function Checkout (){
                 .catch ( err => {
                         console.error('POST /pizza/order', err)
                 })
+            
+            const price1 = Math.sum(pizzaCart.price)
 
-        
 
         };
 
@@ -48,18 +50,21 @@ function Checkout (){
             <table >
                 <thead>
                     <tr>
-                        <th>Customer Name:</th>
-                        <th>Cost:</th>
+                        <th> Name</th>
+                        <th>Cost</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>{customerInformation.customer_name}</td>
-                        <td></td>
+                    
+                    {pizzaCart.map(order => (<tr>
+                        <td>{order.name}</td>
+                        <td>{order.price}</td>
                     </tr>
+
+                    ))}
                 </tbody>
             </table>
-            <h2> Total: {}</h2>
+            <h2> Total: {price1}</h2>
             <button >  🛒 Checkout </button>
         </>
     )
