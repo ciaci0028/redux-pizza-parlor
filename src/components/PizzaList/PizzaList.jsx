@@ -8,6 +8,7 @@ function PizzaList() {
   const dispatch = useDispatch();
   const history = useHistory();
   let [pizzaList, setPizzaList] = useState([]);
+  const totalPrice = useSelector(store => store.totalPrice);
 
   useEffect(() => {
     console.log("in useEffect");
@@ -34,14 +35,18 @@ function PizzaList() {
     payload: pizzaList,
   });
 
+
   return (
     <div>
       <h2>Step 1: Select Your Pizza</h2>
       {pizzaList.map((pizza) => (
         <PizzaItem key={pizza.id} pizza={pizza} />
       ))}
+      <h3>Total Price: ${totalPrice}</h3>
+      <button onClick={() => history.push('/order')}>NEXT</button>
       <br></br>
       <button className="nextBtn" onClick={() => history.push('/order')}>NEXT</button>
+
     </div>
   );
 }

@@ -5,6 +5,8 @@ function PizzaItem({ pizza }) {
   const [flipStatus, setFlipStatus] = useState(true);
   const dispatch = useDispatch();
 
+  
+
   const addToCart = () => {
     setFlipStatus(!flipStatus);
     dispatch({
@@ -13,6 +15,11 @@ function PizzaItem({ pizza }) {
         // that I want to send with me action
         payload: pizza,
       });
+
+      dispatch({
+        type: "ADD_TOTAL_PRICE",
+        payload: pizza.price
+      })
   };
   
   const deleteFromCart = () => {
@@ -23,7 +30,26 @@ function PizzaItem({ pizza }) {
         // that I want to send with me action
         payload: pizza,
       });
+
+      dispatch({
+        type: "SUBTRACT_TOTAL_PRICE",
+        payload: pizza.price
+      })
+
   };
+
+  const increasePrice = () => {
+
+
+
+  };
+
+  const decreasePrice = () => {
+
+
+
+  };
+  
 
   return (
     <>
