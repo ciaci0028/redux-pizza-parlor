@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 
 
 function Checkout (){
-
+    const totalPrice = useSelector(store => store.totalPrice);
     const customerInformation = useSelector(store => store.customerInformation);
     const pizzaCart = useSelector(store => store.pizzaCart)
     const totalPrice = useSelector(store => store.totalPrice)
@@ -65,7 +65,7 @@ function Checkout (){
                 </tbody>
             </table>
             <h2> Total: {totalPrice}</h2>
-            <button >  🛒 Checkout </button>
+            <button className="nextBtn">  🛒 Checkout </button>
         </>
     )
 }
