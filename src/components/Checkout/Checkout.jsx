@@ -42,7 +42,7 @@ function Checkout (){
     return (
         <>
         <h1>Prime Pizza</h1>
-        <h3> Step3: Checkout </h3>
+        <h3> Step3: Checkout  </h3>
             <p>{customerInformation.customer_name}</p>
             <p>{customerInformation.street_address}</p>
             <p>{customerInformation.city}, {customerInformation.zip}</p>
