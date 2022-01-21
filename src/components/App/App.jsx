@@ -4,16 +4,11 @@ import "./App.css";
 import { HashRouter as Router, Route, Link } from "react-router-dom";
 
 import PizzaList from "../PizzaList/PizzaList";
-import PizzaOrder from '../PizzaOrder/PizzaOrder';
+import PizzaOrder from "../PizzaOrder/PizzaOrder";
 import OrderList from "../OrderList/OrderList";
-import Checkout from "../Checkout/Checkout"
+import Checkout from "../Checkout/Checkout";
 
 function App() {
-
-  
-
-
-
   return (
     <Router>
       <div className="App">
@@ -22,7 +17,6 @@ function App() {
           <Link to="/checkout">Checkout</Link>
           <Link to="/order">Order</Link>
           <Link to="/admin">Admin</Link>
-
         </nav>
 
         <header className="App-header">
@@ -45,7 +39,6 @@ function App() {
         <Route path="/checkout" exact>
           <Checkout />
         </Route>
-    
       </div>
     </Router>
   );
