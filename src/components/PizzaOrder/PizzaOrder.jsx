@@ -76,7 +76,7 @@ return(
                         <option value="Pickup">Pickup</option>
                         <option value="Delivery">Delivery</option>
                 </select><br/>
-                <button type="submit">Next</button>
+                <button className="nextBtn" type="submit">Next</button>
         </form>
 )
 }
