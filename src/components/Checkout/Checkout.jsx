@@ -17,7 +17,7 @@ function Checkout (){
                 zip: customerInformation.zip,
                 type: customerInformation.type,
                 // total:,
-                // pizzas:
+                // pizzas: 
         }
         
         console.log('order info is', orderInfo)
