@@ -4,21 +4,34 @@ import { useSelector, useDispatch } from "react-redux";
 function PizzaItem({ pizza }) {
   const [flipStatus, setFlipStatus] = useState(true);
   const dispatch = useDispatch();
-  let [pizzaCart, setPizzaCart] = useState([]);
+
+  
+
   dispatch({
     type: "PIZZA_CART",
     // payload is any data
     // that I want to send with me action
-    payload: pizzaCart,
+    payload: pizza
   });
+ 
   const addToCart = () => {
     setFlipStatus(!flipStatus);
-    pizzaCart.push(pizza)
+    dispatch({
+        type: "ADD_PIZZA_CART",
+        // payload is any data
+        // that I want to send with me action
+        payload: pizza,
+      });
   };
-
+  
   const deleteFromCart = (pizza) => {
     setFlipStatus(!flipStatus);
-    
+    dispatch({
+        type: "REMOVE_FROM_CART",
+        // payload is any data
+        // that I want to send with me action
+        payload: pizza,
+      });
   };
 
   return (
