@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
+import PizzaItem from "../PizzaItem/PizzaItem";
 
 function PizzaList() {
   const dispatch = useDispatch();
@@ -35,12 +36,7 @@ function PizzaList() {
     <div>
       <h2>Step 1: Select Your Pizza</h2>
       {pizzaList.map((pizza) => (
-        <div key={pizza.id}>
-          <h3>{pizza.name}</h3>
-          <p>{pizza.description}</p>
-          <p>${pizza.price}</p>
-          <img src={pizza.image_path} />
-        </div>
+        <PizzaItem key={pizza.id} pizza={pizza} />
       ))}
       <button>NEXT</button>
     </div>

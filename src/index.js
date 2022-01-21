@@ -21,6 +21,16 @@ const pizzaList = (state = [], action) => {
     return state;
 };
 
+const pizzaCart = (state = [], action) => {
+    switch (action.type) {
+      case "PIZZA_CART":
+        return [...state, action.payload];
+    }
+    // Whatever we return from the reducer
+    // is the value of our state
+    return state;
+  };
+
 
 const orderList = (state = [], action) => {
     switch(action.type) {
@@ -44,9 +54,11 @@ const customerInformation = (state = {}, action) => {
 // Create the store
 const store = createStore(
     combineReducers({
-        pizzaList: pizzaList,
+
+       pizzaList: pizzaList,
         orderList,
-        customerInformation
+        pizzaCart: pizzaCart
+
     }),
     applyMiddleware(logger)
 
