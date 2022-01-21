@@ -5,14 +5,16 @@ function PizzaItem({ pizza }) {
   const [flipStatus, setFlipStatus] = useState(true);
   const dispatch = useDispatch();
 
-  
+  // useEffect(() => {
+  //   console.log("in useEffect Pizzaitem");
+  // }, []);
 
-  dispatch({
-    type: "PIZZA_CART",
-    // payload is any data
-    // that I want to send with me action
-    payload: pizza
-  });
+  // dispatch({
+  //   type: "PIZZA_CART",
+  //   // payload is any data
+  //   // that I want to send with me action
+  //   payload: pizza
+  // });
  
   const addToCart = () => {
     setFlipStatus(!flipStatus);
@@ -22,7 +24,14 @@ function PizzaItem({ pizza }) {
         // that I want to send with me action
         payload: pizza,
       });
+
+      dispatch({
+        type: "ADD_TOTAL_PRICE",
+        payload: pizza.price
+      })
   };
+
+  
   
   const deleteFromCart = () => {
     setFlipStatus(!flipStatus);
@@ -32,7 +41,26 @@ function PizzaItem({ pizza }) {
         // that I want to send with me action
         payload: pizza,
       });
+
+      dispatch({
+        type: "SUBTRACT_TOTAL_PRICE",
+        payload: pizza.price
+      })
+
   };
+
+  const increasePrice = () => {
+
+
+
+  };
+
+  const decreasePrice = () => {
+
+
+
+  };
+  
 
   return (
     <>

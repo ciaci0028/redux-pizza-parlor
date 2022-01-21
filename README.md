@@ -108,7 +108,7 @@ Users should not be able to modify item totals on this screen. When they click c
 
 This page **should not** appear in the navigation bar. Eventually the client would like to add authentication but for now, it will be available to anyone with the url [http://localhost:3000/admin](http://localhost:3000/admin). This page will display the name, time and order total for each of the orders placed.
 
-![Select Pizza View](wireframes/screen-admin.png)
+![Select Pizza View](wireframe  s/screen-admin.png)
 
 
 ## STRETCH GOALS
