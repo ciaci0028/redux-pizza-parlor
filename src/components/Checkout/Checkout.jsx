@@ -5,7 +5,6 @@ function Checkout (){
     const totalPrice = useSelector(store => store.totalPrice);
     const customerInformation = useSelector(store => store.customerInformation);
     const pizzaCart = useSelector(store => store.pizzaCart)
-    const totalPrice = useSelector(store => store.totalPrice)
     console.log(customerInformation);
 
     const onAddOrder = (evt) => {
